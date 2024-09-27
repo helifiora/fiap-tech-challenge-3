@@ -1,0 +1,16 @@
+.back-button {
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  padding: 0;
+  gap: 4px;
+  align-items: center;
+  color: var(--color-brand-3);
+  cursor: pointer;
+  user-select: none;
+  transition: text-decoration 0.2s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,42 @@
+.alert-message {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 2px;
+  color: #e01b24;
+  background-color: #ffdbde;
+  border-left: 2px solid #e01b24;
+  text-transform: lowercase;
+  animation: show 0.3s ease forwards;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > .close {
+    flex: none;
+    padding: 2px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: transparent;
+    transition: background 0.2s ease;
+    aspect-ratio: 1;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+    &:hover {
+      background: #ff9298;
+    }
+  }
+}
+
+@keyframes show {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: initial;
+    opacity: 1;
+  }
+}

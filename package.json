@@ -1,0 +1,7 @@
+{
+  "name": "tech-challenge-3-workspace",
+  "workspaces": [
+    "apps/server",
+    "apps/frontend"
+  ]
+}

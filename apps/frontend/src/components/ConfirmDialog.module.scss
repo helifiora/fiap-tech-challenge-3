@@ -1,0 +1,28 @@
+.confirm-dialog {
+  flex: 1;
+  max-width: 320px;
+  padding: 24px;
+  margin: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: show 0.3s ease forwards;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px #00000014;
+  border: none;
+
+  & > .header {
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

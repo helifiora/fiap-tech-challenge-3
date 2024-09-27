@@ -1,0 +1,29 @@
+.admin-post {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 16px 2px;
+
+  & + & {
+    border-top: 1px solid var(--color-light-3);
+  }
+}
+
+.admin-post-date {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-dark-2);
+}
+
+.admin-post-title {
+  font-size: 16px;
+  font-weight: 600;
+  text-wrap: pretty;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    color: var(--color-brand-3);
+  }
+}
