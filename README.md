@@ -48,19 +48,20 @@
 ## Executando o Projeto
 
 Para iniciar o servidor de desenvolvimento execute:
+ ```sh
 npm start
 # or
 yarn start
-
+ ```
 O aplicativo estará disponível em http://localhost:3000.
 
 Building para Produção
 Para criar uma compilação de produção, execute:
-
+ ```sh
 npm run build
 # or
 yarn build
-
+ ```
 A compilação estará localizada no diretório de compilação.
 
 ## Opcional uso do docker
