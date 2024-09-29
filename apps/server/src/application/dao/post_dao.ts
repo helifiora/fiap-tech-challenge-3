@@ -1,3 +1,12 @@
+import { PostDao } from "./post_dao.ts";
+import { DaoFactory } from "./_factory.ts";
+
+export class ConcreteDaoFactory implements DaoFactory {
+  postDao(): PostDao {
+    return new PostDao();
+  }
+}
+
 export interface PostDao {
   getMany(options?: GetManyDaoOptions): Promise<PostDaoModel[]>;
   getById(id: string): Promise<PostDaoModel | null>;
