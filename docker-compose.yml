@@ -1,0 +1,44 @@
+version: '3'
+services:
+  react-app:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile
+    container_name: react-grupo-38
+    ports:
+      - "${VITE_PORT:-3001}:${VITE_PORTPORT:-3001}"
+    volumes:
+      - front_data:/app/frontend
+    env_file:
+      - ./apps/frontend/.env
+    depends_on:
+      - node-server
+
+  node-server:
+    build:
+      context: ./apps/server
+      dockerfile: Dockerfile
+    container_name: node-grupo-38
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    volumes:
+      - server_data:/app/server
+    env_file:
+      - ./apps/server/.env
+
+  db:
+    container_name: postgres_fiap
+    image: postgres:13
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT:-5432}:${POSTGRES_PORT:-5432}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+  front_data:
+  server_data:
