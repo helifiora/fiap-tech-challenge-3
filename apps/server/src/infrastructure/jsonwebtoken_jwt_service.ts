@@ -20,13 +20,13 @@ export class JsonwebtokenJwtService implements JwtService {
     const accessToken = jsonwebtoken.sign(
       { author: JSON.stringify(raw) },
       this.#privateKey,
-      { expiresIn: "1m" },
+      { expiresIn: "30m" },
     );
 
     const refreshToken = jsonwebtoken.sign(
       { authorId: raw.id },
       `${this.#privateKey}-refresh`,
-      { expiresIn: "1d" },
+      { expiresIn: "7d" },
     );
 
     return { accessToken, refreshToken };
