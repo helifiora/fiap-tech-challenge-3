@@ -7,10 +7,13 @@ import { Author } from "#domain/model/author.ts";
 import { UseCaseFactory } from "#application/usecase/_factory.ts";
 import { PostUseCaseFactory } from "#application/usecase/post/_factory.ts";
 import { AuthorUseCaseFactory } from "#application/usecase/author/_factory.ts";
+import { DaoFactory } from "#application/dao/_factory.ts";
+import { PostDao } from "#application/dao/post_dao.ts";
 
 test("should define useCase factory", () => {
   const factory = new UseCaseFactory(
     new FakeRepoFactory(),
+    new FakeDaoFactory(),
     new FakeJwtService(),
   );
 
@@ -24,6 +27,12 @@ class FakeRepoFactory implements RepoFactory {
   }
 
   postRepo(): PostRepo {
+    return {} as any;
+  }
+}
+
+class FakeDaoFactory implements DaoFactory {
+  postDao(): PostDao {
     return {} as any;
   }
 }
