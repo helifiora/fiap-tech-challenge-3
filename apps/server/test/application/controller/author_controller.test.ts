@@ -3,7 +3,6 @@ import { AuthorRepo } from "#application/repo/author_repo.ts";
 import { JsonwebtokenJwtService } from "#infrastructure/jsonwebtoken_jwt_service";
 import { JwtService } from "#application/jwt_service";
 import { useDatabaseContainer } from "../../use_database_container.ts";
-import { AuthorController } from "#application/controller/author_controller.ts";
 import { AuthorUseCaseFactory } from "#application/usecase/author/_factory.ts";
 import {
   ControllerInvalidBodyError,
