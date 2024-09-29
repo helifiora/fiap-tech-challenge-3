@@ -4,8 +4,6 @@ import { PostGateway } from "./gateway/post.gateway";
 import { clearAuthor, refreshTokens } from "./store/authReducer";
 import { store } from "./store/store";
 
-let isRefreshing = false;
-
 const httpClient = axios.create({
   baseURL: "http://localhost:3000",
 });
@@ -31,7 +29,6 @@ httpClient.interceptors.response.use(
     const refreshToken = localStorage.getItem("refreshToken");
     if (refreshToken === null) return error;
 
-    isRefreshing = true;
     try {
       const value = await axios.post(
         `${error.config?.baseURL}/authors/refresh`,
