@@ -8,7 +8,6 @@ import {
 import { Author, AuthorUser } from "#domain/model/author";
 import { BaseSchema, InferOutput, parse } from "valibot";
 import { IncomingHttpHeaders } from "node:http";
-import { addDays } from "date-fns";
 
 export class ExpressControllerContext implements ControllerContext {
   #req: Request;
@@ -51,11 +50,5 @@ export class ExpressControllerContext implements ControllerContext {
     }
 
     return user;
-  }
-
-  authorize(token: string, refreshToken: string): void {
-    const expires = addDays(new Date(), 20);
-    this.#res.cookie("accessToken", token, { httpOnly: true, expires });
-    this.#res.cookie("refreshToken", refreshToken, { httpOnly: true, expires });
   }
 }

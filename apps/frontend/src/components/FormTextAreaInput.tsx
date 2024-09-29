@@ -1,25 +1,32 @@
-import { memo } from "react";
+import { forwardRef, InputHTMLAttributes } from "react";
+import classes from "./FormTextAreaInput.module.scss";
 
-type Props = {
+type Props = InputHTMLAttributes<HTMLTextAreaElement> & {
   id: string;
-  label: string;
+  formLabel: string;
+  formError?: string;
 };
 
-const FormTextAreaInput = memo((props: Props) => {
-  return (
-    <div>
-      <label htmlFor={props.id} className="input-label">
-        {props.label}
-      </label>
-      <textarea
-        className="textarea"
-        id={props.id}
-        autoComplete="off"
-        autoCapitalize="off"
-        rows={12}
-      />
-    </div>
-  );
-});
+const FormTextAreaInput = forwardRef<HTMLTextAreaElement, Props>(
+  (props, ref) => {
+    const { formLabel, formError, ...others } = props;
+    return (
+      <div>
+        <label htmlFor={others.id} className={classes["form-textarea-label"]}>
+          {formLabel}
+        </label>
+        <textarea
+          className={classes["form-textarea-input"]}
+          rows={20}
+          ref={ref}
+          {...others}
+        />
+        <div className={classes["form-textarea-error"]}>
+          {formError && <span className={classes["message"]}>{formError}</span>}
+        </div>
+      </div>
+    );
+  },
+);
 
 export default FormTextAreaInput;

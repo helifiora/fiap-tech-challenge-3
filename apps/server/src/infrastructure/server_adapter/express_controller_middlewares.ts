@@ -11,15 +11,14 @@ export class ExpressAuthMiddleware {
   handle: Handler = async (req, res, next) => {
     const [_, token] = req.headers.authorization?.split(" ") ?? ["", ""];
     if (token.trim().length === 0) {
-      return res.status(401).send();
+      return res.status(401).send({ code: "NADA HAVER" });
     }
 
     try {
       res.locals["user"] = await this.#jwt.verify(token);
       return next();
     } catch (e) {
-      console.error(e);
-      return res.status(401).send();
+      return res.status(401).send({ code: "token.expired" });
     }
   };
 }

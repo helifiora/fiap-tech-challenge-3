@@ -16,7 +16,6 @@ export interface ControllerContext {
   query(key: string): string | null;
   header(key: keyof IncomingHttpHeaders): string | null;
   user(): Author;
-  authorize(token: string, refreshToken: string): void;
 }
 
 export type EndpointOptions = { anonymous?: boolean };
@@ -97,6 +96,12 @@ export class ControllerInvalidBodyError extends BaseError {
 }
 
 export class ControllerNoParamError extends BaseError {
+  constructor(message: string) {
+    super(BaseErrorEnum.validation, message);
+  }
+}
+
+export class ControllerInvalidParamError extends BaseError {
   constructor(message: string) {
     super(BaseErrorEnum.validation, message);
   }

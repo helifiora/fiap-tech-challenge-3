@@ -1,0 +1,14 @@
+.post-edit-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  & > .content {
+    font-size: 18px;
+    text-wrap: pretty;
+    line-height: 1.5;
+  }
+}

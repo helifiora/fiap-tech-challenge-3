@@ -25,4 +25,6 @@ const update = v.object({
   ),
 });
 
-export const PostSchema = { update, create };
+const id = v.pipe(v.string(), v.uuid("id inválido"));
+
+export const PostSchema = { update, create, id };

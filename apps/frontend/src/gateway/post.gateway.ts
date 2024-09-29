@@ -1,5 +1,10 @@
 import { parse } from "valibot";
-import { PostArraySchema, PostModel, PostSchema } from "../model/post.model";
+import {
+  EditPost,
+  PostArraySchema,
+  PostModel,
+  PostSchema,
+} from "../model/post.model";
 import { AxiosInstance } from "axios";
 
 export class PostGateway {
@@ -20,12 +25,12 @@ export class PostGateway {
   }
 
   async getManyByAuthor(): Promise<PostModel[]> {
-    const { status, data } = await this.#axios.get(`${this.#url}/admin`);
-    if (status === 204) {
+    const s = await this.#axios.get(`${this.#url}/admin`);
+    if (s.status === 204) {
       return [];
     }
 
-    return parse(PostArraySchema, data);
+    return parse(PostArraySchema, s.data);
   }
 
   async getOne(id: string): Promise<PostModel | null> {
@@ -35,5 +40,17 @@ export class PostGateway {
     }
 
     return parse(PostSchema, data);
+  }
+
+  async create(editPost: EditPost): Promise<void> {
+    await this.#axios.post(this.#url, editPost);
+  }
+
+  async update(editPost: EditPost, id: string): Promise<void> {
+    await this.#axios.put(`${this.#url}/${id}`, { ...editPost, id });
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.#axios.delete(`${this.#url}/${id}`);
   }
 }

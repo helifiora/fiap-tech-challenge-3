@@ -1,3 +1,4 @@
+import * as v from "valibot";
 import { formatDate } from "date-fns";
 import { ptBR as locale } from "date-fns/locale";
 
@@ -13,3 +14,5 @@ export function truncateText(text: string, maxQuantity: number): string {
 
   return clamped;
 }
+
+export const idSchema = v.pipe(v.string(), v.uuid("Identificador inválido"));

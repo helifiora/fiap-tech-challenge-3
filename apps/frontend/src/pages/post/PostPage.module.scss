@@ -1,0 +1,11 @@
+.post-page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding-top: 24px;
+}
+
+.blog-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}

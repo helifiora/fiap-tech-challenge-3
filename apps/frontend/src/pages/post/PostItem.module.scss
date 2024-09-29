@@ -1,0 +1,47 @@
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  & > .user {
+    color: var(--color-dark-1);
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  & > .title {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    max-width: 60ch;
+    text-wrap: pretty;
+    transition: 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--color-brand-3);
+    }
+  }
+
+  & > .description {
+    font-size: 16px;
+    max-width: 60ch;
+    color: var(--color-dark-3);
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+
+  & > .info {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-dark-1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}

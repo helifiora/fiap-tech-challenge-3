@@ -28,6 +28,7 @@ export class KyselyPostDao implements PostDao {
 
     const items = await query
       .innerJoin("author", "author.id", "post.author_id")
+      .orderBy("post.published_at desc")
       .select([
         "post.id as postId",
         "post.content as postContent",

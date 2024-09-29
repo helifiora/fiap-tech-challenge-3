@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { idSchema } from "../schema.utils";
+import { idSchema } from "../util";
 
 const passwordSchema = v.pipe(
   v.string(),

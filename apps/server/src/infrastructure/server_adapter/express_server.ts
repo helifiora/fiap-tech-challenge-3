@@ -53,6 +53,8 @@ export class ExpressServer implements Server {
               return res.status(403).send();
             }
           }
+
+          return res.status(500).send({ error: "Erro interno" });
         }
       });
     }

@@ -3,14 +3,19 @@ import IconArrowLeft from "./icons/IconArrowLeft";
 import { HTMLAttributes } from "react";
 import classes from "./BackButton.module.scss";
 
-type Props = HTMLAttributes<HTMLButtonElement> & { fallback: string };
+type Props = HTMLAttributes<HTMLButtonElement> & {
+  fallback: string;
+  to?: string;
+};
 
 const BackButton = (props: Props) => {
   const navigate = useNavigate();
   const { fallback, className, ...others } = props;
 
   const onClick = () => {
-    if (window.history.length > 2) {
+    if (props.to) {
+      navigate(props.to);
+    } else if (window.history.length > 2) {
       navigate(-1);
     } else {
       navigate(fallback);

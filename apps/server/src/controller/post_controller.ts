@@ -1,6 +1,7 @@
 import type { PostUseCaseFactory } from "#application/usecase/post/_factory.ts";
 import {
   type Controller,
+  ControllerInvalidParamError,
   ControllerResponse,
   EndpointFn,
   mapDelete,
@@ -8,6 +9,7 @@ import {
   mapPost,
   mapPut,
 } from "#controller/controller.ts";
+import { parse, safeParse } from "valibot";
 import { PostSchema } from "./post_controller_schema.ts";
 
 type Params = {
@@ -42,6 +44,11 @@ export function postController(params: Params): Controller {
 
   const show: EndpointFn = async (ctx) => {
     const id = ctx.param("id");
+    const idResult = safeParse(PostSchema.id, id);
+    if (!idResult.success) {
+      throw new ControllerInvalidParamError(idResult.issues[0].message);
+    }
+
     const useCase = useCases.getPostById();
     const result = await useCase.handle({ id });
     if (result === null) {

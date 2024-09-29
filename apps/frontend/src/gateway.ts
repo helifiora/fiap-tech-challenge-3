@@ -1,6 +1,10 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { AuthorGateway } from "./gateway/author.gateway";
 import { PostGateway } from "./gateway/post.gateway";
+import { clearAuthor, refreshTokens } from "./store/authReducer";
+import { store } from "./store/store";
+
+let isRefreshing = false;
 
 const httpClient = axios.create({
   baseURL: "http://localhost:3000",
@@ -14,6 +18,38 @@ httpClient.interceptors.request.use((config) => {
 
   return config;
 });
+
+httpClient.interceptors.response.use(
+  (res) => res,
+  async (error: AxiosError) => {
+    const response = error.response;
+
+    if (!response || (response.data as any).code !== "token.expired")
+      return error;
+    if (isRefreshing) return error;
+
+    const refreshToken = localStorage.getItem("refreshToken");
+    if (refreshToken === null) return error;
+
+    isRefreshing = true;
+    try {
+      const value = await axios.post(
+        `${error.config?.baseURL}/authors/refresh`,
+        { refreshToken },
+      );
+
+      const { token, refreshToken: a } = value.data as any;
+      store.dispatch(refreshTokens({ token, refresh: a }));
+      return axios.request({
+        ...error.response!.config,
+        headers: { Authorization: `Bearer ${token}` },
+      });
+    } catch {
+      store.dispatch(clearAuthor());
+      throw "unauthorized";
+    }
+  },
+);
 
 export const postGateway = new PostGateway(httpClient);
 

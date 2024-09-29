@@ -9,6 +9,21 @@ export class KyselyAuthorRepo implements AuthorRepo {
     this.#db = db;
   }
 
+  async getById(id: string): Promise<AuthorUser | null> {
+    const raw =
+      (await this.#db
+        .selectFrom("author")
+        .where("id", "=", id)
+        .selectAll()
+        .executeTakeFirst()) ?? null;
+
+    if (raw === null) {
+      return null;
+    }
+
+    return new AuthorUser(raw.id, raw.email, raw.username, raw.password_hash);
+  }
+
   async getByEmail(email: string): Promise<AuthorUser | null> {
     const raw =
       (await this.#db

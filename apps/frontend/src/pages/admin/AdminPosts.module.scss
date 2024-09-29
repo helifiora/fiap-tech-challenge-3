@@ -1,0 +1,48 @@
+.admin-post {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 16px 2px;
+
+  & + & {
+    border-top: 1px solid var(--color-light-3);
+  }
+}
+
+.admin-post-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-post-date {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-dark-2);
+}
+
+.admin-post-title {
+  font-size: 16px;
+  font-weight: 600;
+  text-wrap: pretty;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    color: var(--color-brand-3);
+  }
+}
+
+@media (max-width: 400px) {
+  .admin-post {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px 2px;
+  }
+
+  .admin-post-actions {
+    gap: 24px;
+    justify-content: space-around;
+  }
+}

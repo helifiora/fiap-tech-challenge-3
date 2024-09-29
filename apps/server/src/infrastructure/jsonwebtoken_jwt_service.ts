@@ -20,13 +20,13 @@ export class JsonwebtokenJwtService implements JwtService {
     const accessToken = jsonwebtoken.sign(
       { author: JSON.stringify(raw) },
       this.#privateKey,
-      { expiresIn: "5m" },
+      { expiresIn: "1m" },
     );
 
     const refreshToken = jsonwebtoken.sign(
       { authorId: raw.id },
       `${this.#privateKey}-refresh`,
-      { expiresIn: "30min" },
+      { expiresIn: "1d" },
     );
 
     return { accessToken, refreshToken };
@@ -48,8 +48,7 @@ export class JsonwebtokenJwtService implements JwtService {
         token,
         `${this.#privateKey}-refresh`,
       ) as any;
-      const raw = JSON.parse(result.author);
-      return raw.authorId;
+      return result.authorId;
     } catch (_) {
       throw new InvalidTokenError();
     }

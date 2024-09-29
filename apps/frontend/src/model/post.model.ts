@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { idSchema } from "../schema.utils";
+import { idSchema } from "../util";
 
 export const PostSchema = v.object({
   id: idSchema,
@@ -16,7 +16,14 @@ export const PostSchema = v.object({
   }),
 });
 
+export const EditPostSchema = v.object({
+  title: v.pipe(v.string(), v.nonEmpty("titulo vazio")),
+  content: v.pipe(v.string(), v.nonEmpty("postagem vazia")),
+});
+
 export const PostArraySchema = v.array(PostSchema);
+
+export type EditPost = v.InferInput<typeof EditPostSchema>;
 
 export type PostModelApi = v.InferInput<typeof PostSchema>;
 
