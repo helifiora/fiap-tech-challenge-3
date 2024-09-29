@@ -1,6 +1,6 @@
 ![Logo Projeto](logo.png)
 
-# Tech Challenge 2 - FIAP
+# Tech Challenge 3 - FIAP
 
 ---
 
@@ -12,23 +12,72 @@
 
 ## Funcionalidades
 
-- [x] Criação de Autores
-- [x] Autenticação
-- [x] Listagem de Posts, com filtros por texto (tanto titulo quanto conteúdo)
-- [x] Busca por Post
-- [x] Criação de Post
-- [x] Exclusão de Post
-- [x] Atualização de Post
+- [x] Lista de Posts com título do autor, breve descrição e campo de busca
+- [x] Leitura do Post
+- [x] Criação do Postagem
+- [x] Edição do Postagem
+- [x] Administração da Postagem com opção de editar e excluir
+- [x] Autenticação e Autorização
 
 ## Principais ferramentas, bibliotecas e frameworks
 
-- [Express](https://expressjs.com/), framework minimalista para nodejs
-- [Valibot](https://valibot.dev/), alternativa ao Zod para validação de schemas
-- [Vitest](https://vitest.dev/) como framework para testes
-- [Pg](https://github.com/brianc/node-postgres) como driver postgres
-- [Kysely](https://kysely.dev/) sql query builder que integra com o driver pg
-- [Testcontainers](https://testcontainers.com/) Framework utilizado para subir instancias de testes do postgres,
-  utilizadas nos testes de integração
-- [Tsup](https://tsup.egoist.dev/), bundler typescript para produção
-- [Tsx](https://github.com/privatenumber/tsx) executar Typescript, utilizado
-  no desenvolvimento
+- Node.js
+- npm or yarn
+- Docker(Opcional para ambiente conteinerizado)
+
+### React + TypeScript + Vite
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) usa [Babel](https://babeljs.io/) para Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) usa [SWC](https://swc.rs/) para Fast Refresh
+
+## Instalação
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/your-username/your-repo.git
+    cd your-repo
+    ```
+
+2. Install dependencies:
+    ```sh
+    npm install
+    # or
+    yarn install
+    ```
+
+## Executando o Projeto
+
+Para iniciar o servidor de desenvolvimento execute:
+npm start
+# or
+yarn start
+
+O aplicativo estará disponível em http://localhost:3000.
+
+Building para Produção
+Para criar uma compilação de produção, execute:
+
+npm run build
+# or
+yarn build
+
+A compilação estará localizada no diretório de compilação.
+
+## Opcional uso do docker
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+## Configuração do Ambiente
+
+- Crie um arquivo `.env` na raiz do projeto com o contéudo de ".env-default"
+
+## Como executar o projeto
+
+- Construção dos ambientes de aplicação e banco de dados:
+
+      docker compose up --build
+ 
+- Depois da primeira construção, poderá usar comando abaixo para executar:
+
+      docker compose up
