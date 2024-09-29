@@ -13,9 +13,7 @@ export default function RootHeader() {
       </h1>
 
       {author ? (
-        <Link to="/admin" className="button -primary -small">
-          {author.username}
-        </Link>
+        <Link to="/admin">{author.username}</Link>
       ) : (
         <Link to="/signin">Login</Link>
       )}
