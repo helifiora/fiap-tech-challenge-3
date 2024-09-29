@@ -1,7 +1,5 @@
 import { assert, describe, it } from "vitest";
-
 import * as v from "valibot";
-
 import {
   ControllerRequest,
   ControllerInvalidBodyError,
@@ -10,7 +8,7 @@ import {
 } from "#controller/controller";
 
 describe("ControllerRequest", () => {
-  const body1 = v.object({
+  const bodySchema = v.object({
     name: v.string(),
     age: v.number(),
   });
@@ -20,7 +18,7 @@ describe("ControllerRequest", () => {
       body: { name: 200 },
     });
 
-    assert.throws(() => request.body(body1), ControllerInvalidBodyError);
+    assert.throws(() => request.body(bodySchema), ControllerInvalidBodyError);
   });
 
   it("[body] should return an object when schema is valid", () => {
@@ -31,7 +29,7 @@ describe("ControllerRequest", () => {
       },
     });
 
-    const result = request.body(body1);
+    const result = request.body(bodySchema);
     assert.equal(result.name, "Heli");
     assert.equal(result.age, 21);
   });
@@ -111,6 +109,10 @@ describe("ControllerResponse", () => {
 
   it("[noContent] should create a response", () => {
     const response = ControllerResponse.noContent();
+    assert.equal(response.status, 204);
+    assert.equal(response.content, null);
+  });
+});
     assert.equal(response.status, 204);
     assert.equal(response.content, null);
   });
