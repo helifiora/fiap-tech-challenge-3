@@ -17,7 +17,7 @@ export class UseCaseFactory {
     this.authorFac = new AuthorUseCaseFactory(repoFac.authorRepo(), jwtService);
     this.postFac = new PostUseCaseFactory(
       repoFac.postRepo(),
-      daoFactory.postDao()
+      daoFactory.postDao(),
     );
   }
 }
