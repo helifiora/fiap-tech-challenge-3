@@ -5,8 +5,3 @@
     "apps/frontend"
   ]
 }
-{
-  "scripts": {
-    "test": "react-scripts test"
-  }
-}
