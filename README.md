@@ -21,9 +21,17 @@
 
 ## Principais ferramentas, bibliotecas e frameworks
 
-- Node.js
-- npm or yarn
-- Docker(Opcional para ambiente conteinerizado)
+- [Node.js](https://nodejs.org/pt), plataforma que permite a execução de código JavaScript fora de um navegador web
+- [Docker](https://www.docker.com/) (Opcional para ambiente conteinerizado)
+- [Docker Compose](https://docs.docker.com/compose/) (Opcional para ambiente conteinerizado)
+- [Express](https://expressjs.com/), framework minimalista para nodejs
+- [Valibot](https://valibot.dev/), alternativa ao Zod para validação de schemas
+- [Vitest](https://vitest.dev/) como framework para testes
+- [Pg](https://github.com/brianc/node-postgres) como driver postgres
+- [Kysely](https://kysely.dev/) sql query builder que integra com o driver pg
+- [Tsup](https://tsup.egoist.dev/), bundler typescript para produção
+- [Tsx](https://github.com/privatenumber/tsx) executar Typescript, utilizado
+  no desenvolvimento
 
 ### React + TypeScript + Vite
 
@@ -63,11 +71,6 @@ npm run build
 yarn build
  ```
 A compilação estará localizada no diretório de compilação.
-
-## Opcional uso do docker
-
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
 
 ## Configuração do Ambiente
 
