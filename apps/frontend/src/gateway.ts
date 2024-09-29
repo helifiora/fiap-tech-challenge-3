@@ -24,7 +24,6 @@ httpClient.interceptors.response.use(
 
     if (!response || (response.data as any).code !== "token.expired")
       return error;
-    if (isRefreshing) return error;
 
     const refreshToken = localStorage.getItem("refreshToken");
     if (refreshToken === null) return error;
