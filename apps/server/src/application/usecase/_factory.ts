@@ -5,6 +5,12 @@ import type { RepoFactory } from "#application/repo/_factory.ts";
 import { AuthorUseCaseFactory } from "./author/_factory.ts";
 import { PostUseCaseFactory } from "./post/_factory.ts";
 
+class ConcreteDaoFactory implements DaoFactory {
+  postDao(): PostDao {
+    return new PostDao();
+  }
+}
+
 export class UseCaseFactory {
   authorFac: AuthorUseCaseFactory;
   postFac: PostUseCaseFactory;
