@@ -11,6 +11,10 @@ import { applyMigration } from "./main_migration.ts";
 import { postController, authorController } from "#controller/mod.ts";
 import { KyselyDaoFactory } from "#infrastructure/dao_adapter/_factory.ts";
 
+import dotenv from 'dotenv';
+
+dotenv.config(); 
+
 const environment = parseEnv(env);
 
 const jwtService = new JsonwebtokenJwtService(environment.secret);
