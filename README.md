@@ -33,10 +33,19 @@
 - [Tsx](https://github.com/privatenumber/tsx) executar Typescript, utilizado
   no desenvolvimento
 
-### React + TypeScript + Vite
+## Dependências
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) usa [Babel](https://babeljs.io/) para Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) usa [SWC](https://swc.rs/) para Fast Refresh
+O projeto usa as seguintes dependências para sua funcionalidade principal e validação de formulário:
+
+- **React Hook Form**: permite a validação do formulário, permitindo a personalização de componentes, ao mesmo tempo que fornece fácil integração de regras de validação.
+- **Valibot**: uma biblioteca de validação de formulário que se integra ao React Hook Form para validar entradas antes do envio.
+- **@hookform/resolvers**: Fornece resolvedores de validação para integração com bibliotecas como Valibot para validação de formulário.
+- **React Markdown**: Converte o conteúdo do Markdown em HTML, permitindo que tags como parágrafos, listas, etc., sejam renderizadas corretamente.
+- **Date-fns**: uma biblioteca de utilitários para manipular datas e horas com uma ampla variedade de funções integradas.
+- **Axios**: um cliente HTTP baseado em promessa usado para fazer solicitações ao back-end.
+- **Redux**: Atualmente usado para gerenciamento de estado global, especificamente para armazenar o estado do usuário logado.
+- **React Router DOM**: Manages the routing and navigation between different pages in the application.
+
 
 ## Instalação
 
