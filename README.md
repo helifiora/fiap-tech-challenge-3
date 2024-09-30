@@ -111,6 +111,12 @@ A compilação estará localizada no diretório de compilação.
 
 ## Como executar o projeto com Docker
 
+Para executação do node-js (back-end) e banco de dados. Na pasta "apps/server", faça os comandos abaixo.
+
+Para executação do react (front-end). Na pasta "apps/frontend", faça os comandos abaixo.
+
+Para executação de todos os projetos e banco de dados. Na pasta "apps", faça os comandos abaixo.
+
 Construção dos ambientes de aplicação e banco de dados:
 
       docker compose up --build
