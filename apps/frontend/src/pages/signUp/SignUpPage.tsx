@@ -45,7 +45,7 @@ export default function SignUpPage() {
       onSubmit={handleSubmit(onSubmit)}
       className="transition-content"
       style={{
-        paddingTop: 48,
+        paddingTop: 24,
         maxWidth: 400,
         margin: "0 auto",
         display: "flex",
@@ -61,6 +61,7 @@ export default function SignUpPage() {
         type="text"
         {...register("username")}
         formError={errors.username?.message}
+        autoFocus
       />
 
       <FormTextInput

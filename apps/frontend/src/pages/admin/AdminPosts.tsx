@@ -43,7 +43,7 @@ export default function AdminPosts(props: Props) {
     [itemToDelete],
   );
 
-  if (props.items.length === 0) {
+  if (items.length === 0) {
     return <p>Não há nenhuma postagem cadastrada</p>;
   }
 
@@ -67,13 +67,13 @@ export default function AdminPosts(props: Props) {
                 onClick={() => setItemToDelete(item)}
                 className="button -square text-brand"
               >
-                <IconTrash size={20} />
+                <IconTrash size={18} />
               </button>
               <Link
                 to={`/posts/${item.id}/edit`}
                 className="button -square text-brand"
               >
-                <IconEdit size={20} />
+                <IconEdit size={18} />
               </Link>
             </div>
           </li>

@@ -66,6 +66,7 @@ listenerMiddleware.startListening({
   effect: () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
+    localStorage.removeItem("author");
   },
 });
 

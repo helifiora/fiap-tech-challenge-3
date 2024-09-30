@@ -19,7 +19,7 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = useForm<SignInModel>({
-    defaultValues: { email: "jovem@jovem.com", password: "Oi123456" },
+    defaultValues: { email: "", password: "" },
     resolver: valibotResolver(SignInModelSchema),
   });
 
@@ -58,6 +58,7 @@ export default function LoginPage() {
           type="email"
           {...register("email")}
           formError={errors.email?.message}
+          autoFocus
         />
 
         <FormTextInput

@@ -26,6 +26,10 @@
       cursor: pointer;
       color: var(--color-brand-3);
     }
+
+    * {
+      display: inline-block;
+    }
   }
 
   & > .description {
@@ -34,6 +38,10 @@
     color: var(--color-dark-3);
     font-weight: 400;
     text-wrap: pretty;
+
+    * {
+      display: inline-block;
+    }
   }
 
   & > .info {
