@@ -49,47 +49,45 @@ O projeto usa as seguintes dependências para sua funcionalidade principal e val
 
 ## Instalação
 
-1. Clone the repository:
+1. Clone o repositório:
     ```sh
     git clone https://github.com/your-username/your-repo.git
     cd your-repo
     ```
 
-2. Install dependencies:
+2. Instale as dependências:
     ```sh
     npm install
     # or
     yarn install
     ```
 
-## Executando o Projeto
+## Configuração do Ambiente
+
+
+    Crie um arquivo `.env` na raiz do projeto com o contéudo de ".env-default"
+
+
+## Executando o Projeto com NPM
 
 Para iniciar o servidor de desenvolvimento execute:
 
 
-    npm install
-    # or
-    yarn install
+    npm run dev
 
     
-O aplicativo estará disponível em http://localhost:3000.
+O aplicativo estará disponível em http://localhost:3001 (Por padrão a porta definida é 3001).
 
 Building para Produção
 Para criar uma compilação de produção, execute:
 
    
-    npm install
-    # or
-    yarn install
+    npm run build
   
     
 A compilação estará localizada no diretório de compilação.
 
-## Configuração do Ambiente
-
-- Crie um arquivo `.env` na raiz do projeto com o contéudo de ".env-default"
-
-## Como executar o projeto
+## Como executar o projeto com Docker
 
 - Construção dos ambientes de aplicação e banco de dados:
 
