@@ -117,10 +117,15 @@ Para executação do react (front-end). Na pasta "apps/frontend", faça os coman
 
 Para executação de todos os projetos e banco de dados. Na pasta "apps", faça os comandos abaixo.
 
-Construção dos ambientes de aplicação e banco de dados:
+
+1 - Construa o banco de dados
+
+      docker compose up -d db    
+
+2 - Construa as demais aplicações com o comando
 
       docker compose up --build
  
-Depois da primeira construção, poderá usar comando abaixo para executar:
+Obs.: Depois da primeira construção, poderá usar comando abaixo para executar:
 
       docker compose up
