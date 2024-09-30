@@ -129,3 +129,10 @@ Para executação de todos os projetos e banco de dados. Na pasta "apps", faça 
 Obs.: Depois da primeira construção, poderá usar comando abaixo para executar:
 
       docker compose up
+
+
+## Como remover projeto do Docker
+
+Para remoção do projeto e seus volumes utilize o comando:
+
+    docker compose down -v
