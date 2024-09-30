@@ -64,12 +64,34 @@ O projeto usa as seguintes dependências para sua funcionalidade principal e val
 
 ## Configuração do Ambiente
 
+Dentro de "apps", nas pastas "frontend" e "server"
 
     Crie um arquivo `.env` na raiz do projeto com o contéudo de ".env-default"
 
 
-## Executando o Projeto com NPM
+## Executando o Projeto NodeJS com NPM
 
+Dentro da pasta "apps/server":
+Para iniciar o servidor de desenvolvimento execute:
+
+
+    npm run dev
+
+    
+O aplicativo estará disponível em http://localhost:3000 (Por padrão a porta definida é 3000).
+
+Building para Produção
+Para criar uma compilação de produção, execute:
+
+   
+    npm run start
+  
+    
+A compilação estará localizada no diretório de compilação.
+
+## Executando o Projeto React com NPM
+
+Dentro da pasta "apps/frontend":
 Para iniciar o servidor de desenvolvimento execute:
 
 
@@ -89,10 +111,10 @@ A compilação estará localizada no diretório de compilação.
 
 ## Como executar o projeto com Docker
 
-- Construção dos ambientes de aplicação e banco de dados:
+Construção dos ambientes de aplicação e banco de dados:
 
       docker compose up --build
  
-- Depois da primeira construção, poderá usar comando abaixo para executar:
+Depois da primeira construção, poderá usar comando abaixo para executar:
 
       docker compose up
