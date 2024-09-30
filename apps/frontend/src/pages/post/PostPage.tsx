@@ -12,7 +12,7 @@ export default function PostPage() {
   const [filter, setFilter] = useState("");
 
   const filtered = data.filter((item) =>
-    item.title.toLowerCase().includes(filter),
+    item.title.includes(filter),
   );
 
   return (
