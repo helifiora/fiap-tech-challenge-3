@@ -25,18 +25,19 @@ services:
       - server_data:/app/server
     env_file:
       - ./apps/server/.env
+    depends_on:
+      - db
 
   db:
     container_name: postgres_fiap
     image: postgres:13
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+    env_file:
+      - ./apps/server/.env
     ports:
       - "${POSTGRES_PORT:-5432}:${POSTGRES_PORT:-5432}"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
 
 volumes:
   postgres_data:

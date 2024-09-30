@@ -68,8 +68,9 @@ O projeto usa as seguintes dependências para sua funcionalidade principal e val
     Crie um arquivo `.env` na raiz do projeto com o contéudo de ".env-default"
 
 
-## Executando o Projeto com NPM
+## Executando o Projeto React com NPM
 
+Dentro da pasta "apps/frontend":
 Para iniciar o servidor de desenvolvimento execute:
 
 
@@ -89,10 +90,10 @@ A compilação estará localizada no diretório de compilação.
 
 ## Como executar o projeto com Docker
 
-- Construção dos ambientes de aplicação e banco de dados:
+Construção dos ambientes de aplicação e banco de dados:
 
       docker compose up --build
  
-- Depois da primeira construção, poderá usar comando abaixo para executar:
+Depois da primeira construção, poderá usar comando abaixo para executar:
 
       docker compose up
