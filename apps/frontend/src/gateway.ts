@@ -4,8 +4,9 @@ import { PostGateway } from "./gateway/post.gateway";
 import { clearAuthor, refreshTokens } from "./store/authReducer";
 import { store } from "./store/store";
 
+console.log(import.meta.env.VITE_BASE_URL)
 const httpClient = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 httpClient.interceptors.request.use((config) => {
